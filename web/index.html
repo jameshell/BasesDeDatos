@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        
+        <form action="profesordao" method="POST">
+
+            Nombre el Profesor: <input type="text" name="first_name" />
+            <br>
+            Apellido del profesor: <input type="text" name="last_name" />
+            <br>
+            Extension: <input type="text" name="extension" />
+            <br>
+            <textarea rows="5" cols="50" name="description">   </textarea>
+            <br>
+            Preferences
+            <input type="checbox" name="maths" value="maths"> Maths
+            <input type="checbox" name="physics" value="physics"> Physics
+            <br>
+
+            
+            <input type="radio" name="subject" value="studiante"> Estudiante
+            <input type="radio" name="subject" value="profesor"> Profesor
+            <br>
+
+            Sport
+            <select name="dropdown">
+                <option value="Maths" selected>Soccer</option>
+                <option value="Physics">Swimming</option>
+            </select>
+            </br> 
+ 
+            <input type="hidden" name="pagename" value="10">
+            <input type="submit" name="submit" value="Submit">
+            <input type="reset" name="reset" value="Reset">
+        </form
+    </body>
+</html>
