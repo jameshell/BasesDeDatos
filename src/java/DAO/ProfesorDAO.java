@@ -20,7 +20,7 @@ public class ProfesorDAO {
     
     public ProfesorDAO() throws FileNotFoundException{
       this.profesorDB = new RandomAccessFile("profesor.txt", "rw");
-      //this.profesorDB = new RandomAccessFile("C:\\Users\\james\\AppData\\Roaming\\NetBeans\\8.0.2\\config\\GF_4.1\\domain1\\config\\profesor.txt", "rw");
+      //this.profesorDB = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\profesor.txt", "rw");
       File f =new File("profesor.txt");
         System.out.println(f.getAbsolutePath());
     }
@@ -57,6 +57,7 @@ public class ProfesorDAO {
     }
     
     public boolean actualizar(Profesor profesor){
+        
     
       return false;
     }
@@ -97,7 +98,4 @@ public class ProfesorDAO {
     public void destructor() throws IOException{
       this.profesorDB.close();
     }
-    
-    
-    
 }

@@ -16,9 +16,9 @@ public class Inscripciones {
     private int codigocurso;
     private char[] Fecha_ins;
     private char[] Fecha_fin;
-    private int nota;
+    private float nota;
 
-    public Inscripciones(int idest, int codigocurso, char[] Fecha_ins, char[] Fecha_fin, int nota) {
+    public Inscripciones(int idest, int codigocurso, char[] Fecha_ins, char[] Fecha_fin, float nota) {
         this.idest = idest;
         this.codigocurso = codigocurso;
         this.Fecha_ins = Fecha_ins;
@@ -58,11 +58,11 @@ public class Inscripciones {
         this.Fecha_fin = Fecha_fin;
     }
 
-    public int getNota() {
+    public float getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(float nota) {
         this.nota = nota;
     }
     

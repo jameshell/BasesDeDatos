@@ -12,10 +12,10 @@ package vo;
 public class Curso {
     private int codigo;
     private char[] nombre;
-    private char[] duracion;
+    private int duracion;
     private int idprof;
 
-    public Curso(int codigo, char[] nombre, char[] duracion, int idprof) {
+    public Curso(int codigo, char[] nombre, int duracion, int idprof) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.duracion = duracion;
@@ -38,11 +38,11 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public char[] getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(char[] duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
