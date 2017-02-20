@@ -12,13 +12,15 @@ import java.util.Date;
  * @author Carlos
  */
 public class Inscripciones {
+    int noInscripcion;
     private int idest;
     private int codigocurso;
     private char[] Fecha_ins;
     private char[] Fecha_fin;
     private float nota;
 
-    public Inscripciones(int idest, int codigocurso, char[] Fecha_ins, char[] Fecha_fin, float nota) {
+    public Inscripciones(int noInscripcion, int idest, int codigocurso, char[] Fecha_ins, char[] Fecha_fin, float nota) {
+        this.noInscripcion = noInscripcion;
         this.idest = idest;
         this.codigocurso = codigocurso;
         this.Fecha_ins = Fecha_ins;
@@ -26,6 +28,14 @@ public class Inscripciones {
         this.nota = nota;
     }
 
+    public int getNoInscripcion() {
+        return noInscripcion;
+    }
+
+    public void setNoInscripcion(int noInscripcion) {
+        this.noInscripcion = noInscripcion;
+    }
+    
     public int getIdest() {
         return idest;
     }

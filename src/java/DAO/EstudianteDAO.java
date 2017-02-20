@@ -10,6 +10,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import vo.Estudiante;
 
 /**
@@ -24,6 +27,7 @@ public class EstudianteDAO {
       this.estudianteDB = new RandomAccessFile("estudiante.txt", "rw");
       //this.estudianteDB = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\estudiante.txt", "rw");
       File f =new File("estudiante.txt");
+        System.out.println("Ubicacion del archivo de Estudiantes: \n");
         System.out.println(f.getAbsolutePath());
     }
     public boolean insertar(Estudiante estudiante) throws IOException{
@@ -58,18 +62,108 @@ public class EstudianteDAO {
         return true;
     }
     
-    public boolean actualizar(Estudiante estudiante){
+    public boolean actualizar(Estudiante estudiante) throws IOException{
+        if (treeEstudiante.getTreeMap().containsKey(estudiante.getId())) {
+        int pos=buscar(estudiante.getId());
+        this.estudianteDB.seek(pos);
+        this.estudianteDB.writeInt(estudiante.getId()); //id
+        for(int i = 0;i < 20; i++){
+            
+            if (i<estudiante.getNombre().length) {
+                    char letra = estudiante.getNombre()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
+          
+        }
         
-    
+        for(int i = 0;i < 20; i++){
+          if (i<estudiante.getApellido().length) {
+                    char letra = estudiante.getApellido()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
+        }
+      
+        this.estudianteDB.writeInt(estudiante.getTelefono());
+        return true;
+        }
       return false;
     }
-    
-    public boolean borrar(Estudiante estudiante){
+    public int buscar(int idEstudiante){
+        int b=treeEstudiante.buscaribyte(idEstudiante);
+        if (b!=-1) {
+            return b;
+        }else{
+      return -1;
+        }
+    }
+    public boolean borrar(int idEstudiante) throws IOException{
+        if(treeEstudiante.getTreeMap().containsKey(idEstudiante)){
+            treeEstudiante.borrar(idEstudiante);
+            //treeEstudiante.inicializar();
+            return true;
+        }
       return false;
     }
-    
+    public void Listar(int idEstudiante) throws IOException{
+        int pos=buscar(idEstudiante);
+        estudianteDB.seek(pos);
+            System.out.print(this.estudianteDB.readInt());
+            System.out.print(" ");
+            for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   System.out.print(c);
+               }
+           }
+           System.out.print(" ");
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   System.out.print(c);
+               }
+           }
+           System.out.print(" ");
+           System.out.println(this.estudianteDB.readInt());
+           System.out.println("");
+    }
     public ArrayList<Estudiante> listarTodo() throws IOException{
-       for(long i = 0; i< this.estudianteDB.length();i= i + 88){//char 20*2 char 20*2 int 4 int 4 
+        for (Map.Entry<Integer, Integer> entry:treeEstudiante.getTreeMap().entrySet()){
+            int pos=buscar(entry.getKey());
+            estudianteDB.seek(pos);
+            System.out.print(this.estudianteDB.readInt());
+           System.out.print(" ");
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   System.out.print(c);
+               }
+           }
+           System.out.print(" ");
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   System.out.print(c);
+               }
+           }
+           System.out.print(" ");
+           System.out.println(this.estudianteDB.readInt());
+           System.out.println("");
+        }
+       /*for(long i = 0; i< this.estudianteDB.length();i= i + 88){//char 20*2 char 20*2 int 4 int 4 
            this.estudianteDB.seek(i);
            System.out.print(this.estudianteDB.readInt());
            System.out.print(" ");
@@ -93,7 +187,7 @@ public class EstudianteDAO {
            System.out.print(" ");
            System.out.println(this.estudianteDB.readInt());
            System.out.println("");
-       }
+       }*/
        return null;
     }
     

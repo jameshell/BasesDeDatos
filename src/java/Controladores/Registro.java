@@ -5,6 +5,7 @@
  */
 package Controladores;
 
+import DAO.EstudianteDAO;
 import DAO.ProfesorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import vo.Estudiante;
 import vo.Profesor;
 
 /**
@@ -40,6 +42,12 @@ public class Registro extends HttpServlet {
             String tipoPersona=request.getParameter("tipoPersona");
             
             if("1".equals(tipoPersona)){
+                
+                  
+                EstudianteDAO estudiantedao = new EstudianteDAO();
+            ArrayList<Estudiante> estudiantes =new ArrayList<Estudiante>();
+            
+                
                 int id = Integer.parseInt(request.getParameter("idpersona"));
                 
                 int telefono = Integer.parseInt(request.getParameter("telefono"));
@@ -49,6 +57,14 @@ public class Registro extends HttpServlet {
                 
                 String a= request.getParameter("apellido");
                 char[] apellido=  n.toCharArray();
+                
+                Estudiante estudiante= new Estudiante(id,nombre,apellido,telefono);
+                
+                estudiantedao.insertar(estudiante);
+                estudiantedao.destructor();
+                 response.sendRedirect("registroPersonas.jsp"); 
+                
+                
                 
             }else if("2".equals(tipoPersona)){
                 

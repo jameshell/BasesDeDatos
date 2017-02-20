@@ -9,7 +9,9 @@ import DAO.CursoDAO;
 import DAO.EstudianteDAO;
 import DAO.InscripcionesDAO;
 import DAO.ProfesorDAO;
+import DAO.TreeCurso;
 import DAO.TreeEstudiante;
+import DAO.TreeProfesor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -27,14 +29,17 @@ import vo.Profesor;
 public class Main {
     public static void main(String[] args) {
         try {
-            EstudianteDAO estudianteDAO=new EstudianteDAO();
-            estudianteDAO.listarTodo();
-            estudianteDAO.destructor();
-            estudianteDAO.treeEstudiante.Listar();
-            RandomAccessFile TreeEstudiante = new RandomAccessFile("TreeEstudiante.txt", "rw");
-            TreeEstudiante.skipBytes(16);
-            System.out.println(TreeEstudiante.readInt());
-            System.out.println(TreeEstudiante.readInt());
+            InscripcionesDAO inscripcionesDAO=new InscripcionesDAO();
+            /*inscripcionesDAO.insertar(new Inscripciones(1,1015, 101, "10/08/2010".toCharArray(), "26/08/2010".toCharArray(), 3));
+            inscripcionesDAO.insertar(new Inscripciones(2,1015, 103, "15/06/2009".toCharArray(), "10/07/2009".toCharArray(), (float) 4.5));
+            inscripcionesDAO.insertar(new Inscripciones(3,1029, 101, "10/08/2010".toCharArray(), "26/08/2010".toCharArray(), (float) 3.5));
+            inscripcionesDAO.insertar(new Inscripciones(4,1518, 102, "10/08/2010".toCharArray(), "20/08/2010".toCharArray(), 4));
+            inscripcionesDAO.insertar(new Inscripciones(5,1518, 103, "15/06/2009".toCharArray(), "10/07/2009".toCharArray(), (float) 4.5));
+            inscripcionesDAO.insertar(new Inscripciones(6,1518, 104, "10/02/2010".toCharArray(), "30/05/2010".toCharArray(), 5));
+            inscripcionesDAO.insertar(new Inscripciones(7,10, 104, "10/02/2010".toCharArray(), "30/05/2010".toCharArray(), 5));
+            */inscripcionesDAO.borrar(1);
+            inscripcionesDAO.listarTodo();
+            inscripcionesDAO.destructor();
         }catch(IOException e){
             
         }

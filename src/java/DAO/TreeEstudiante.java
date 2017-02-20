@@ -57,6 +57,10 @@ public class TreeEstudiante {
             System.out.println("empty");
         }
     }
+    public int buscaribyte(int Key){
+        int Byte=treeMap.get(Key);
+        return Byte;
+    }
     public void Listar(){
         for (Map.Entry<Integer, Integer> entry:treeMap.entrySet()) {
             System.out.print(entry.getKey());
@@ -64,5 +68,31 @@ public class TreeEstudiante {
             System.out.print(entry.getValue());
             System.out.println("");
         }
+    }
+    public void borrar(int key){
+        try {
+            TreeEstudiante.setLength(0);
+            for (Map.Entry<Integer, Integer> entry:treeMap.entrySet()) {
+                if (entry.getKey()!=key) {
+                    TreeEstudiante.writeInt(entry.getKey());
+                    TreeEstudiante.writeInt(entry.getValue());
+                }
+            }
+            System.out.println(TreeEstudiante.length());
+            treeMap.clear();
+            inicializar();
+        } catch (IOException ex) {
+            Logger.getLogger(TreeEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+
+    public TreeMap<Integer, Integer> getTreeMap() {
+        return treeMap;
+    }
+
+    public void setTreeMap(TreeMap<Integer, Integer> treeMap) {
+        this.treeMap = treeMap;
     }
 }
