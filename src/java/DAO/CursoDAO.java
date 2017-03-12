@@ -109,25 +109,31 @@ public class CursoDAO {
            System.out.println("");
     }
     public ArrayList<Curso> listarTodo() throws IOException{
+        ArrayList<Curso> al=new ArrayList<>();
        for (Map.Entry<Integer, Integer> entry:treeCurso.getTreeMap().entrySet()){
             int pos=buscar(entry.getKey());
-            System.out.print(this.CursoDB.readInt());
+            int codigo=this.CursoDB.readInt();
+            System.out.print(codigo);
            System.out.print(" ");
+           String Nombre=new String();
            for(int j = 0;j<20;j++){
                char c=this.CursoDB.readChar();
                if (c==' ') {
-                   
                }else{
+                   Nombre=Nombre+c;
                    System.out.print(c);
                }
            }
            System.out.print(" ");
-           System.out.print(this.CursoDB.readInt());
+           int Duracion=this.CursoDB.readInt();
+           System.out.print(Duracion);
            System.out.print(" ");
-           System.out.println(this.CursoDB.readInt());
+           int IdProf=this.CursoDB.readInt();
+           System.out.println(IdProf);
            System.out.println("");
+           al.add(new Curso(codigo, Nombre.toCharArray(), Duracion, IdProf));
         }
-        return null;
+        return al;
     }
     
     public void destructor() throws IOException{
