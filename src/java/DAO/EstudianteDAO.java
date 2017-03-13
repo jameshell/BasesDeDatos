@@ -34,12 +34,11 @@ public class EstudianteDAO {
     public boolean insertar(Estudiantes estudiante) throws IOException{
         long posicionMemoria = this.estudianteDB.length();
         this.estudianteDB.seek(posicionMemoria);
-        this.estudianteDB.writeInt(estudiante.getId()); //id
-        treeEstudiante.insertar(estudiante.getId(), (int)posicionMemoria);
+        this.estudianteDB.writeInt(estudiante.getCedulaEstudiante()); //id
+        treeEstudiante.insertar(estudiante.getCedulaEstudiante(), (int)posicionMemoria);
         for(int i = 0;i < 20; i++){
-            
-            if (i<estudiante.getNombre().length) {
-                    char letra = estudiante.getNombre()[i];
+            if (i<estudiante.getNombreEstudiante().length) {
+                    char letra = estudiante.getNombreEstudiante()[i];
                     this.estudianteDB.writeChar(letra);
                 }else{
                     char letra = ' ';
@@ -49,8 +48,8 @@ public class EstudianteDAO {
         }
         
         for(int i = 0;i < 20; i++){
-          if (i<estudiante.getApellido().length) {
-                    char letra = estudiante.getApellido()[i];
+          if (i<estudiante.getApellidoEstudiante().length) {
+                    char letra = estudiante.getApellidoEstudiante()[i];
                     this.estudianteDB.writeChar(letra);
                 }else{
                     char letra = ' ';
@@ -58,20 +57,29 @@ public class EstudianteDAO {
             }
         }
       
-        this.estudianteDB.writeInt(estudiante.getTelefono());
+        this.estudianteDB.writeInt(estudiante.getSemestreEstudiante());
+        for(int i = 0;i <40; i++){
+          if (i<estudiante.getCarreraEstudiante().length) {
+                    char letra = estudiante.getCarreraEstudiante()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
+        }
         
         return true;
     }
     
-    public boolean actualizar(Estudiante estudiante) throws IOException{
-        if (treeEstudiante.getTreeMap().containsKey(estudiante.getId())) {
-        int pos=buscar(estudiante.getId());
+    public boolean actualizar(Estudiantes estudiante) throws IOException{
+        if (treeEstudiante.getTreeMap().containsKey(estudiante.getCedulaEstudiante())) {
+        int pos=buscar(estudiante.getCedulaEstudiante());
         this.estudianteDB.seek(pos);
-        this.estudianteDB.writeInt(estudiante.getId()); //id
+        this.estudianteDB.writeInt(estudiante.getCedulaEstudiante()); //id
         for(int i = 0;i < 20; i++){
             
-            if (i<estudiante.getNombre().length) {
-                    char letra = estudiante.getNombre()[i];
+            if (i<estudiante.getNombreEstudiante().length) {
+                    char letra = estudiante.getNombreEstudiante()[i];
                     this.estudianteDB.writeChar(letra);
                 }else{
                     char letra = ' ';
@@ -81,8 +89,8 @@ public class EstudianteDAO {
         }
         
         for(int i = 0;i < 20; i++){
-          if (i<estudiante.getApellido().length) {
-                    char letra = estudiante.getApellido()[i];
+          if (i<estudiante.getApellidoEstudiante().length) {
+                    char letra = estudiante.getApellidoEstudiante()[i];
                     this.estudianteDB.writeChar(letra);
                 }else{
                     char letra = ' ';
@@ -90,7 +98,16 @@ public class EstudianteDAO {
             }
         }
       
-        this.estudianteDB.writeInt(estudiante.getTelefono());
+        this.estudianteDB.writeInt(estudiante.getSemestreEstudiante());
+        for(int i = 0;i < 40; i++){
+          if (i<estudiante.getCarreraEstudiante().length) {
+                    char letra = estudiante.getCarreraEstudiante()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
+        }
         return true;
         }
       return false;
@@ -137,20 +154,20 @@ public class EstudianteDAO {
            System.out.println(this.estudianteDB.readInt());
            System.out.println("");
     }
-    public ArrayList<Estudiante> listarTodo() throws IOException{
+    public ArrayList<Estudiantes> listarTodo() throws IOException{
         for (Map.Entry<Integer, Integer> entry:treeEstudiante.getTreeMap().entrySet()){
             int pos=buscar(entry.getKey());
             estudianteDB.seek(pos);
             System.out.print(this.estudianteDB.readInt());
-           System.out.print(" ");
-           for(int j = 0;j<20;j++){
+            System.out.print(" ");
+            for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
                    System.out.print(c);
                }
-           }
+            }
            System.out.print(" ");
            for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
@@ -163,32 +180,15 @@ public class EstudianteDAO {
            System.out.print(" ");
            System.out.println(this.estudianteDB.readInt());
            System.out.println("");
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   System.out.print(c);
+               }
+           }
         }
-       /*for(long i = 0; i< this.estudianteDB.length();i= i + 88){//char 20*2 char 20*2 int 4 int 4 
-           this.estudianteDB.seek(i);
-           System.out.print(this.estudianteDB.readInt());
-           System.out.print(" ");
-           for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
-               if (c==' ') {
-                   
-               }else{
-                   System.out.print(c);
-               }
-           }
-           System.out.print(" ");
-           for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
-               if (c==' ') {
-                   
-               }else{
-                   System.out.print(c);
-               }
-           }
-           System.out.print(" ");
-           System.out.println(this.estudianteDB.readInt());
-           System.out.println("");
-       }*/
        return null;
     }
     
