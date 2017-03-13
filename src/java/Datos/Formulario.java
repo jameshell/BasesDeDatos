@@ -10,13 +10,15 @@ package Datos;
  * @author Carlos
  */
 public class Formulario {
+    int IdTransaccion;
     int IdFormulario;
     int CedulaEstudiante;
     int IdDispositivo;
     char[] fechaEntrada;
     char[] fechaSalida;
 
-    public Formulario(int IdFormulario, int CedulaEstudiante, int IdDispositivo, char[] fechaEntrada, char[] fechaSalida) {
+    public Formulario(int IdTransaccion,int IdFormulario, int CedulaEstudiante, int IdDispositivo, char[] fechaEntrada, char[] fechaSalida) {
+        this.IdTransaccion=IdTransaccion;
         this.IdFormulario = IdFormulario;
         this.CedulaEstudiante = CedulaEstudiante;
         this.IdDispositivo = IdDispositivo;
@@ -62,6 +64,19 @@ public class Formulario {
 
     public void setFechaSalida(char[] fechaSalida) {
         this.fechaSalida = fechaSalida;
+    }
+
+    public int getIdTransaccion() {
+        return IdTransaccion;
+    }
+
+    public void setIdTransaccion(int IdTransaccion) {
+        this.IdTransaccion = IdTransaccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Formulario{" +"IdTransaccion"+IdTransaccion+ "IdFormulario=" + IdFormulario + ", CedulaEstudiante=" + CedulaEstudiante + ", IdDispositivo=" + IdDispositivo + ", fechaEntrada=" + String.valueOf(fechaEntrada) + ", fechaSalida=" + String.valueOf(fechaSalida) + '}';
     }
     
 }
