@@ -17,40 +17,40 @@ import java.util.logging.Logger;
  *
  * @author Carlos
  */
-public class TreeProfesor {
+public class TreeMantenimiento {
     private TreeMap<Integer, Integer> treeMap;
-    private RandomAccessFile TreeProfesor;
-    public TreeProfesor() {
+    private RandomAccessFile TreeEstudiante;
+    public TreeMantenimiento() {
         treeMap=new TreeMap<>();
         try {
             inicializar();
         } catch (IOException ex) {
-            Logger.getLogger(TreeProfesor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TreeMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    // key=idprofesor value=bytes
+    // key=idestudiente value=bytes
     public boolean insertar(int key,int value) throws IOException{
         if (treeMap.isEmpty()) {
             treeMap.put(key, value);
-            TreeProfesor.writeInt(key);
-            TreeProfesor.writeInt(value);
+            TreeEstudiante.writeInt(key);
+            TreeEstudiante.writeInt(value);
         }else{
-            long Tamano=TreeProfesor.length();
-            TreeProfesor.seek(Tamano);
-            TreeProfesor.writeInt(key);
-            TreeProfesor.writeInt(value);
+            long Tamano=TreeEstudiante.length();
+            TreeEstudiante.seek(Tamano);
+            TreeEstudiante.writeInt(key);
+            TreeEstudiante.writeInt(value);
             treeMap.put(key, value);
         }
         return true;
     }
     public void inicializar() throws FileNotFoundException, IOException{
-        this.TreeProfesor = new RandomAccessFile("TreeProfesor.txt", "rw");
+        this.TreeEstudiante = new RandomAccessFile("TreeMantenimiento.txt", "rw");
         //this.TreeEstudiante = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeEstudiante.txt", "rw");
-        if (TreeProfesor.length()!=0) {
+        if (TreeEstudiante.length()!=0) {
             //System.out.println(TreeEstudiante.length());
-            for (int i = 0; i < TreeProfesor.length(); i=i+8) {
-                int Key=TreeProfesor.readInt();
-                int Value=TreeProfesor.readInt();
+            for (int i = 0; i < TreeEstudiante.length(); i=i+8) {
+                int Key=TreeEstudiante.readInt();
+                int Value=TreeEstudiante.readInt();
                 treeMap.put(Key, Value);
             }
         }else{
@@ -71,18 +71,18 @@ public class TreeProfesor {
     }
     public void borrar(int key){
         try {
-            TreeProfesor.setLength(0);
+            TreeEstudiante.setLength(0);
             for (Map.Entry<Integer, Integer> entry:treeMap.entrySet()) {
                 if (entry.getKey()!=key) {
-                    TreeProfesor.writeInt(entry.getKey());
-                    TreeProfesor.writeInt(entry.getValue());
+                    TreeEstudiante.writeInt(entry.getKey());
+                    TreeEstudiante.writeInt(entry.getValue());
                 }
             }
-            System.out.println(TreeProfesor.length());
+            System.out.println(TreeEstudiante.length());
             treeMap.clear();
             inicializar();
         } catch (IOException ex) {
-            Logger.getLogger(TreeProfesor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TreeMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
