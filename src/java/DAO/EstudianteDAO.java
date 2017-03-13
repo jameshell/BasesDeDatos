@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Arboles.TreeEstudiante;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import vo.Estudiante;
+import Datos.Estudiantes;
 
 /**
  *
@@ -30,7 +31,7 @@ public class EstudianteDAO {
         System.out.println("Ubicacion del archivo de Estudiantes: \n");
         System.out.println(f.getAbsolutePath());
     }
-    public boolean insertar(Estudiante estudiante) throws IOException{
+    public boolean insertar(Estudiantes estudiante) throws IOException{
         long posicionMemoria = this.estudianteDB.length();
         this.estudianteDB.seek(posicionMemoria);
         this.estudianteDB.writeInt(estudiante.getId()); //id
