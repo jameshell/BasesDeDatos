@@ -31,6 +31,10 @@
         <servlet-name>estudianteActualizador</servlet-name>
         <servlet-class>Controladores.estudianteActualizador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>herramientaActualizador</servlet-name>
+        <servlet-class>Controladores.herramientaActualizador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>estudianteActualizador</servlet-name>
         <url-pattern>/estudianteActualizador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>herramientaActualizador</servlet-name>
+        <url-pattern>/herramientaActualizador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

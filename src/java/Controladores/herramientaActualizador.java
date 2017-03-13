@@ -5,21 +5,20 @@
  */
 package Controladores;
 
+import DAO.HerramientaDAO;
+import Datos.Herramientas;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import DAO.EstudianteDAO;
-import Datos.Estudiantes;
 
 /**
  *
- * @author james
+ * @author Labing
  */
-public class estudianteControlador extends HttpServlet {
+public class herramientaActualizador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,44 +33,44 @@ public class estudianteControlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-              
+          
             
-                EstudianteDAO estudiantedao = new EstudianteDAO();
+            
+                   HerramientaDAO herramientadao = new HerramientaDAO();
     
-                int cedulaEstudiante= Integer.parseInt(request.getParameter("cedulaEstudiante"));
+                int lols= Integer.parseInt(request.getParameter("idDispositivo"));
                 
-                String nombreEstudiante= request.getParameter("nombreEstudiante");
-                char[] nombreEst=  nombreEstudiante.toCharArray();
+                 int idmantenimiento= Integer.parseInt(request.getParameter("idMantenimiento"));
+            
+                  int serial1= Integer.parseInt(request.getParameter("noSerial"));
                 
-                String apellidoEstudiante= request.getParameter("apellidoEstudiante");
-                char[] nombreap=  apellidoEstudiante.toCharArray();
+                   int idinventario= Integer.parseInt(request.getParameter("idInventario"));
                 
-                 int semestreEstudiante= Integer.parseInt(request.getParameter("semestreEstudiante"));
-                 
-                  String carreraEstudiante= request.getParameter("carreraEstudiante");
-                char[] carreraEst=  carreraEstudiante.toCharArray();
-
+                String nombreHerramienta= request.getParameter("nombreHerramienta");
+                char[] nombre=  nombreHerramienta.toCharArray();
                 
-                Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst);
-                String link="estudiante.jsp";
-                /*if(estudiantedao.buscar(cedulaEstudiante)==-1){
-                    estudiantedao.insertar(estudiante);
-                estudiantedao.destructor();
-                 link="estudianteRegistroExitoso.jsp";
-                }else{
-                estudiantedao.destructor();
-                 link="estudianteYaRegistrado.jsp"; 
-                }*/
+                String descripcion= request.getParameter("descripcionHerramienta");
+                char[] descrip=  descripcion.toCharArray();
                 
-                response.sendRedirect(link);
+                  String statusHerramienta= request.getParameter("statusHerramienta");
+                char[] status=  statusHerramienta.toCharArray();
+             
+                int cantidadArreglos= Integer.parseInt(request.getParameter("cantidadArreglos"));
                 
+                 Herramientas herramienta= new Herramientas(lols,idmantenimiento,idinventario,serial1,nombre,descrip,status,cantidadArreglos);
+                
+                herramientadao.actualizar(herramienta);
+                herramientadao.destructor();
+                 response.sendRedirect("herramienta.jsp"); 
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet estudianteControlador</title>");            
+            out.println("<title>Servlet herramientaActualizador</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet estudianteControlador at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet herramientaActualizador at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

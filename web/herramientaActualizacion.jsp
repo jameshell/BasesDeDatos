@@ -1,7 +1,7 @@
 <%-- 
-    Document   : registroInscripciones
-    Created on : Feb 20, 2017, 1:59:43 AM
-    Author     : james
+    Document   : herramientaActualizacion
+    Created on : 13/03/2017, 05:17:53 PM
+    Author     : Labing
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registro De Inscripciones</title>
+    <title>Sistema de Gestión</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,34 +57,42 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="registroPersonas.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Personas</a>
+                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
-                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Cursos</a>
+                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
-                     <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Inscripciones</a>
+                     <li class="active">
+                        <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
+                           <li>
+                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
+                    </li>
+                           <li>
+                        <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
+                    </li>
+                  
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> CRUD <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Listas <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="crudEstudiantes.jsp">Estudiantes</a>
+                                <a href="crudEstudiantes.jsp">Listas de Estudiantes</a>
                             </li>
                              <li>
-                                <a href="crudInscripciones.jsp">Inscripciones</a>
+                                <a href="crudInscripciones.jsp">Lista de Formularios</a>
                             </li>
                         
                              <li>
-                                <a href="crudProfesores.jsp">Profesores</a>
+                                <a href="crudProfesores.jsp">Lista de Herramientas</a>
                             </li>
                             <li>
-                                <a href="crudCursos.jsp">Cursos</a>
+                                <a href="crudCursos.jsp">Lista de Inventarios</a>
+                            </li>
+                            <li>
+                                <a href="crudCursos.jsp">Lista de Mantenimientos</a>
                             </li>
                         
                         
-                    </li>
-                </ul>
                     </li>
                 </ul>
             </div>
@@ -99,64 +107,81 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Registro de Inscripciones
+                          Herramienta
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="home.html">Inicio</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.jsp">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Modo Privilegiado
+                                <i class="fa fa-desktop"></i> Actualizacion de Herramienta
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="page-header">
+                    <h1>Sistema de Inventario </h1>
+                </div>
+                <p>
+                    Introduzca los datos de la herramienta actualizada.
+                </p>
 
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                      <div class="row">
-                    <div class="col-lg-6">
-
-                        <form action="RegistroInscripcionesControlador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
+                <div class="page-header">
+                    
+                   <form action="herramientaActualizador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
             
                                 
                             <div class="form-group">
-                                <label><h3>Numero de Inscripcion</h3>
+                                <label><h3>ID del dispositivo</h3>
                                 </label>
-                                <input type="text" class="form-control" name="noInscripcion">
+                                <input type="text" class="form-control" name="idDispositivo">
                                 <p class="help-block">Ej: 1056373.</p>
                             </div>
-                            <div class="form-group">
-                                <label><h3>ID del Estudiante</h3>
+                          <div class="form-group">
+                                <label><h3>ID del Mantenimiento</h3>
                                 </label>
-                                <input type="text" class="form-control" name="idEstudiante">
-                                <p class="help-block">Ej: Carlos</p>
+                                <input type="text" class="form-control" name="idMantenimiento">
+                                <p class="help-block">Ej: 121313</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3> Numero del Serial</h3>
+                                </label>
+                                <input type="text" class="form-control" name="noSerial">
+                                <p class="help-block">Ej: 1231341</p>
+                            </div>
+                         <div class="form-group">
+                                <label><h3>ID del Inventario</h3>
+                                </label>
+                                <input type="text" class="form-control" name="idInventario">
+                                <p class="help-block">Ej: 1056373.</p>
                             </div>
                                <div class="form-group">
-                                <label><h3>Codigo curso</h3>
+                                <label><h3>Nombre de la Herramienta</h3>
                                 </label>
-                                <input type="text" class="form-control" name="codigoCurso">
-                                <p class="help-block">Ej: Carlos</p>
+                                <input type="text" class="form-control" name="nombreHerramienta">
+                                <p class="help-block">Ej: Multimetro</p>
                             </div>
                             <div class="form-group">
-                                <label><h3>Fecha de Inscripcion</h3>
+                                <label><h3>Breve descripción de la herramienta</h3>
                                 </label>
-                                <input type="text" class="form-control" name="fechaIncripcion">
-                                <p class="help-block">Ej: 15</p>
+                                <input type="text" class="form-control" name="descripcionHerramienta">
+                                <p class="help-block">Ej: Fuente de poder de Weilsh</p>
                             </div>
                               <div class="form-group">
-                                <label><h3>Fecha Finalizacion</h3>
+                                <label><h3>Status Herramienta</h3>
                                 </label>
-                                <input type="text" class="form-control" name="fechaFinalizacion">
-                                <p class="help-block">Ej: 15</p>
+                                <input type="text" class="form-control" name="statusHerramienta">
+                                <p class="help-block">Ej: Dañada, Disponible, Prestada.</p>
                             </div>
-                             <div class="form-group">
-                                <label><h3>Nota</h3>
+                             
+                            <div class="form-group">
+                                <label><h3>Cantidad de Arreglos</h3>
                                 </label>
-                                <input type="text" class="form-control" name="nota">
-                                <p class="help-block">Ej: 5</p>
+                                <input type="text" class="form-control" name="cantidadArreglos">
+                                <p class="help-block">Ej: 1.</p>
                             </div>
+                            
                       <input type="submit" name="Registrar" value="Registrar" class="btn btn-primary btn-lg" role="button"  >
                          <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
                        </form>
@@ -165,10 +190,6 @@
                              
                         </form>
 
-
-                <div class="page-header">
-                   
-                    
             </div>
             <!-- /.container-fluid -->
 
@@ -183,11 +204,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
-    <!-- Script para mostrar elementos --> 
-     <script src="js/showhide.js"></script>
 
 </body>
 
 </html>
-
