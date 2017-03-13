@@ -1,12 +1,10 @@
 <%-- 
-    Document   : herramienta
-    Created on : Mar 13, 2017, 2:30:07 AM
-    Author     : james
+    Document   : estudianteActualizacion
+    Created on : 13/03/2017, 02:52:39 PM
+    Author     : Labing
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,13 +56,13 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
+                    <li class="active">
                          <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
-                     <li class="active">
+                     <li>
                         <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
@@ -109,14 +107,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Herramienta
+                          Estudiante
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Administración de Herramientas
+                                <i class="fa fa-desktop"></i> Actualización de Datos del Estudiante
                             </li>
                         </ol>
                     </div>
@@ -126,14 +124,52 @@
                     <h1>Sistema de Inventario </h1>
                 </div>
                 <p>
-                    Decida que tipo de acción respecto a los datos de las herramientas.
+                    Introduzca los datos del estudiante que desea actualizae a la mmemoria.
                 </p>
 
                 <div class="page-header">
                     
-                   <a href="herramientaRegistro.jsp" class="btn btn-primary btn-lg">Registro</a>
-                       <a href="herramientaBorrado.jsp" class="btn btn-primary btn-lg">Eliminación</a>
-                           <a href="herramientaActualizacion.jsp" class="btn btn-primary btn-lg">Actualización</a>
+                   <form action="estudianteControlador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
+            
+                                
+                            <div class="form-group">
+                                <label><h3>Cédula del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="cedulaEstudiante">
+                                <p class="help-block">Ej: 1056373.</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3> Nombres del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="nombreEstudiante">
+                                <p class="help-block">Ej: Nicolas</p>
+                            </div>
+                               <div class="form-group">
+                                <label><h3>Apellidos del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="apellidoEstudiante">
+                                <p class="help-block">Ej: Infante</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3>Semestre en el cual se encuentra el Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="semestreEstudiante">
+                                <p class="help-block">Ej: 3</p>
+                            </div>
+                              <div class="form-group">
+                                <label><h3>Carrera</h3>
+                                </label>
+                                <input type="text" class="form-control" name="carreraEstudiante">
+                                <p class="help-block">Ej: Ingeniería de Sistemas</p>
+                            </div>
+                            
+                      <input type="submit" name="Actualizar" value="Actualizar" class="btn btn-primary btn-lg" role="button"  >
+                         <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
+                       </form>
+                      </div>
+                           
+                             
+                        </form>
 
             </div>
             <!-- /.container-fluid -->

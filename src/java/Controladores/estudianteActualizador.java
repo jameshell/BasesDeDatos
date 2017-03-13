@@ -5,21 +5,20 @@
  */
 package Controladores;
 
+import DAO.EstudianteDAO;
+import Datos.Estudiantes;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import DAO.EstudianteDAO;
-import Datos.Estudiantes;
 
 /**
  *
- * @author james
+ * @author Labing
  */
-public class estudianteControlador extends HttpServlet {
+public class estudianteActualizador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +33,7 @@ public class estudianteControlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-              
-            
-                EstudianteDAO estudiantedao = new EstudianteDAO();
+                 EstudianteDAO estudiantedao = new EstudianteDAO();
     
                 int cedulaEstudiante= Integer.parseInt(request.getParameter("cedulaEstudiante"));
                 
@@ -53,25 +50,25 @@ public class estudianteControlador extends HttpServlet {
 
                 
                 Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst);
-                String link="estudiante.jsp";
+                
                 if(estudiantedao.buscar(cedulaEstudiante)==-1){
-                    estudiantedao.insertar(estudiante);
+                    System.out.println("No se encontro el estudiante");
+                    //La idea sería poner otro jsp o html que indique si se encontro al estudiante que se queria actualizar.
+                } else {
+                estudiantedao.actualizar(estudiante);
                 estudiantedao.destructor();
-                 link="estudianteRegistroExitoso.jsp";
-                }else{
-                estudiantedao.destructor();
-                 link="estudianteYaRegistrado.jsp"; 
-                }
-                
-                response.sendRedirect(link);
-                
+                 response.sendRedirect("estudiante.jsp"); }
+            
+           
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet estudianteControlador</title>");            
+            out.println("<title>Servlet estudianteActualizador</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet estudianteControlador at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet estudianteActualizador at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

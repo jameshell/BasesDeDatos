@@ -27,6 +27,10 @@
         <servlet-name>herrmientaControlador</servlet-name>
         <servlet-class>Controladores.herrmientaControlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>estudianteActualizador</servlet-name>
+        <servlet-class>Controladores.estudianteActualizador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
@@ -50,6 +54,10 @@
     <servlet-mapping>
         <servlet-name>herrmientaControlador</servlet-name>
         <url-pattern>/herrmientaControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>estudianteActualizador</servlet-name>
+        <url-pattern>/estudianteActualizador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

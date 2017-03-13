@@ -1,12 +1,10 @@
 <%-- 
-    Document   : herramienta
-    Created on : Mar 13, 2017, 2:30:07 AM
-    Author     : james
+    Document   : estudianteRegistroExitoso
+    Created on : 13/03/2017, 03:12:36 PM
+    Author     : Labing
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,17 +56,17 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
+                    <li class="active">
                          <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
-                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
+                        <a href="-----------jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
-                     <li class="active">
+                     <li>
                         <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
+                        <a href="----------------.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
                         <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
@@ -109,14 +107,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Herramienta
+                            Estudiante
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.jsp">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Administración de Herramientas
+                                <i class="fa fa-desktop"></i> Administración de Estudiantes
                             </li>
                         </ol>
                     </div>
@@ -125,15 +123,13 @@
                 <div class="page-header">
                     <h1>Sistema de Inventario </h1>
                 </div>
-                <p>
-                    Decida que tipo de acción respecto a los datos de las herramientas.
-                </p>
 
                 <div class="page-header">
+                       <h2>El estudiante ha sido registrado exitosamente.</h2>
+                       
+                       
+                   <a href="estudiante.jsp" class="btn btn-primary btn-lg">Volver a Estudiante</a>
                     
-                   <a href="herramientaRegistro.jsp" class="btn btn-primary btn-lg">Registro</a>
-                       <a href="herramientaBorrado.jsp" class="btn btn-primary btn-lg">Eliminación</a>
-                           <a href="herramientaActualizacion.jsp" class="btn btn-primary btn-lg">Actualización</a>
 
             </div>
             <!-- /.container-fluid -->

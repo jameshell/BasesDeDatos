@@ -63,13 +63,13 @@
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
+                        <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
+                        <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
                     <li>

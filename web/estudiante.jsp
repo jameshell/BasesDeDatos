@@ -68,16 +68,16 @@ and open the template in the editor.
                          <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
-                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
+                        <a href="-----------jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
+                        <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
+                        <a href="----------------.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
+                        <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
                     <li>
@@ -138,8 +138,8 @@ and open the template in the editor.
                 <div class="page-header">
                     
                    <a href="estudianteRegistro.jsp" class="btn btn-primary btn-lg">Registro</a>
-                       <a href="http://google.com" class="btn btn-primary btn-lg">Eliminación</a>
-                           <a href="http://google.com" class="btn btn-primary btn-lg">Actualizacion</a>
+                       <a href="estudianteBorrado.jsp" class="btn btn-primary btn-lg">Eliminación</a>
+                           <a href="estudianteActualizacion.jsp" class="btn btn-primary btn-lg">Actualizacion</a>
 
             </div>
             <!-- /.container-fluid -->

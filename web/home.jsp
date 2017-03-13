@@ -70,13 +70,13 @@ and open the template in the editor.
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
+                        <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
+                        <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
                     <li>
@@ -118,7 +118,7 @@ and open the template in the editor.
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.jsp">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-desktop"></i> Modo Privilegiado

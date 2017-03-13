@@ -65,13 +65,13 @@
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li class="active">
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
+                        <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
+                        <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
                     <li>
@@ -133,7 +133,7 @@
                     
                    <a href="herramientaRegistro.jsp" class="btn btn-primary btn-lg">Registro</a>
                        <a href="herramientaBorrado.jsp" class="btn btn-primary btn-lg">Eliminación</a>
-                           <a href="http://google.com" class="btn btn-primary btn-lg">Actualización</a>
+                           <a href="herramientaActualizacion.jsp" class="btn btn-primary btn-lg">Actualización</a>
 
             </div>
             <!-- /.container-fluid -->
