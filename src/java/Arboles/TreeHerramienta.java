@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class TreeHerramienta {
     private TreeMap<Integer, Integer> treeMap;
-    private RandomAccessFile TreeEstudiante;
+    private RandomAccessFile TreeHerramienta;
     public TreeHerramienta() {
         treeMap=new TreeMap<>();
         try {
@@ -32,25 +32,25 @@ public class TreeHerramienta {
     public boolean insertar(int key,int value) throws IOException{
         if (treeMap.isEmpty()) {
             treeMap.put(key, value);
-            TreeEstudiante.writeInt(key);
-            TreeEstudiante.writeInt(value);
+            TreeHerramienta.writeInt(key);
+            TreeHerramienta.writeInt(value);
         }else{
-            long Tamano=TreeEstudiante.length();
-            TreeEstudiante.seek(Tamano);
-            TreeEstudiante.writeInt(key);
-            TreeEstudiante.writeInt(value);
+            long Tamano=TreeHerramienta.length();
+            TreeHerramienta.seek(Tamano);
+            TreeHerramienta.writeInt(key);
+            TreeHerramienta.writeInt(value);
             treeMap.put(key, value);
         }
         return true;
     }
     public void inicializar() throws FileNotFoundException, IOException{
-        this.TreeEstudiante = new RandomAccessFile("TreeEstudiante.txt", "rw");
-        //this.TreeEstudiante = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeEstudiante.txt", "rw");
-        if (TreeEstudiante.length()!=0) {
-            //System.out.println(TreeEstudiante.length());
-            for (int i = 0; i < TreeEstudiante.length(); i=i+8) {
-                int Key=TreeEstudiante.readInt();
-                int Value=TreeEstudiante.readInt();
+        this.TreeHerramienta = new RandomAccessFile("TreeHerramienta.txt", "rw");
+        //this.TreeHerramienta = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeHerramienta.txt", "rw");
+        if (TreeHerramienta.length()!=0) {
+            //System.out.println(TreeHerramienta.length());
+            for (int i = 0; i < TreeHerramienta.length(); i=i+8) {
+                int Key=TreeHerramienta.readInt();
+                int Value=TreeHerramienta.readInt();
                 treeMap.put(Key, Value);
             }
         }else{
@@ -71,14 +71,14 @@ public class TreeHerramienta {
     }
     public void borrar(int key){
         try {
-            TreeEstudiante.setLength(0);
+            TreeHerramienta.setLength(0);
             for (Map.Entry<Integer, Integer> entry:treeMap.entrySet()) {
                 if (entry.getKey()!=key) {
-                    TreeEstudiante.writeInt(entry.getKey());
-                    TreeEstudiante.writeInt(entry.getValue());
+                    TreeHerramienta.writeInt(entry.getKey());
+                    TreeHerramienta.writeInt(entry.getValue());
                 }
             }
-            System.out.println(TreeEstudiante.length());
+            System.out.println(TreeHerramienta.length());
             treeMap.clear();
             inicializar();
         } catch (IOException ex) {

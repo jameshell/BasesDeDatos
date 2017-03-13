@@ -7,9 +7,11 @@ package Ejecucion;
 
 import DAO.EstudianteDAO;
 import DAO.FormularioDAO;
+import DAO.HerramientaDAO;
 import DAO.MantenimientoDAO;
 import Datos.Estudiantes;
 import Datos.Formulario;
+import Datos.Herramientas;
 import Datos.Mantenimientos;
 import java.awt.PageAttributes;
 import java.io.FileNotFoundException;
@@ -22,8 +24,5 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        FormularioDAO fdao=new FormularioDAO();
-        ArrayList<Formulario> al=fdao.listarTodo();
-        System.out.println(al);
     }
 }

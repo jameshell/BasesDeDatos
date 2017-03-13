@@ -10,12 +10,25 @@ package Datos;
  * @author Carlos
  */
 public class Herramientas {
-    int idDispositivo;
-    int serial;
-    char[] nombreHerramienta;
-    char[] descripciomHerramienta;
-    boolean statusHerramienta;
-    int cant_arreglos;
+    private int idDispositivo;
+    private int idMantenimiento;
+    private int idInventario;
+    private int No_Serial;
+    private char[] nombreHerramienta;
+    private char[] descripcionHerramienta;
+    private char[] statusHerramienta;
+    private int cantArreglos;
+
+    public Herramientas(int idDispositivo, int idMantenimiento, int idInventario, int No_Serial, char[] nombreHerramienta, char[] descripcionHerramienta, char[] statusHerramienta, int cantArreglos) {
+        this.idDispositivo = idDispositivo;
+        this.idMantenimiento = idMantenimiento;
+        this.idInventario = idInventario;
+        this.No_Serial = No_Serial;
+        this.nombreHerramienta = nombreHerramienta;
+        this.descripcionHerramienta = descripcionHerramienta;
+        this.statusHerramienta = statusHerramienta;
+        this.cantArreglos = cantArreglos;
+    }
 
     public int getIdDispositivo() {
         return idDispositivo;
@@ -25,12 +38,28 @@ public class Herramientas {
         this.idDispositivo = idDispositivo;
     }
 
-    public int getSerial() {
-        return serial;
+    public int getIdMantenimiento() {
+        return idMantenimiento;
     }
 
-    public void setSerial(int serial) {
-        this.serial = serial;
+    public void setIdMantenimiento(int idMantenimiento) {
+        this.idMantenimiento = idMantenimiento;
+    }
+
+    public int getIdInventario() {
+        return idInventario;
+    }
+
+    public void setIdInventario(int idInventario) {
+        this.idInventario = idInventario;
+    }
+
+    public int getNo_Serial() {
+        return No_Serial;
+    }
+
+    public void setNo_Serial(int No_Serial) {
+        this.No_Serial = No_Serial;
     }
 
     public char[] getNombreHerramienta() {
@@ -41,28 +70,33 @@ public class Herramientas {
         this.nombreHerramienta = nombreHerramienta;
     }
 
-    public char[] getDescripciomHerramienta() {
-        return descripciomHerramienta;
+    public char[] getDescripcionHerramienta() {
+        return descripcionHerramienta;
     }
 
-    public void setDescripciomHerramienta(char[] descripciomHerramienta) {
-        this.descripciomHerramienta = descripciomHerramienta;
+    public void setDescripcionHerramienta(char[] descripcionHerramienta) {
+        this.descripcionHerramienta = descripcionHerramienta;
     }
 
-    public boolean isStatusHerramienta() {
+    public char[] getStatusHerramienta() {
         return statusHerramienta;
     }
 
-    public void setStatusHerramienta(boolean statusHerramienta) {
+    public void setStatusHerramienta(char[] statusHerramienta) {
         this.statusHerramienta = statusHerramienta;
     }
 
-    public int getCant_arreglos() {
-        return cant_arreglos;
+    public int getCantArreglos() {
+        return cantArreglos;
     }
 
-    public void setCant_arreglos(int cant_arreglos) {
-        this.cant_arreglos = cant_arreglos;
+    public void setCantArreglos(int cantArreglos) {
+        this.cantArreglos = cantArreglos;
+    }
+
+    @Override
+    public String toString() {
+        return "Herramientas{" + "idDispositivo=" + idDispositivo + ", idMantenimiento=" + idMantenimiento + ", idInventario=" + idInventario + ", No_Serial=" + No_Serial + ", nombreHerramienta=" + String.valueOf(nombreHerramienta) + ", descripcionHerramienta=" + String.valueOf(descripcionHerramienta) + ", statusHerramienta=" + String.valueOf(statusHerramienta) + ", cantArreglos=" + cantArreglos + '}';
     }
     
 }
