@@ -10,7 +10,7 @@ import DAO.EstudianteDAO;
 import DAO.InscripcionesDAO;
 import DAO.ProfesorDAO;
 import DAO.TreeCurso;
-import DAO.TreeEstudiante;
+import Arboles.TreeEstudiante;
 import DAO.TreeProfesor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
