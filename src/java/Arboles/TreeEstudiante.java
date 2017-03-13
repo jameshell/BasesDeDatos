@@ -5,6 +5,7 @@
  */
 package Arboles;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -46,6 +47,9 @@ public class TreeEstudiante {
     public void inicializar() throws FileNotFoundException, IOException{
         this.TreeEstudiante = new RandomAccessFile("TreeEstudiante.txt", "rw");
         //this.TreeEstudiante = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeEstudiante.txt", "rw");
+        File f =new File("TreeEstudiante.txt");
+        System.out.println("Direccion de carpeta en la cual se alojan los archivos: \n");
+        System.out.println(f.getAbsolutePath());
         if (TreeEstudiante.length()!=0) {
             //System.out.println(TreeEstudiante.length());
             for (int i = 0; i < TreeEstudiante.length(); i=i+8) {

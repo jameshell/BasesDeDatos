@@ -64,30 +64,39 @@ and open the template in the editor.
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="registroPersonas.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Personas</a>
+                         <a href="estudiante.jsp"><i class="fa fa-fw fa-user"></i> Estudiante</a>
                     </li>
                      <li>
-                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Cursos</a>
+                        <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li>
-                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Registro de Inscripciones</a>
+                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
+                    </li>
+                           <li>
+                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
+                    </li>
+                           <li>
+                        <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> CRUD <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Listas <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="crudEstudiantes.jsp">Estudiantes</a>
+                                <a href="crudEstudiantes.jsp">Listas de Estudiantes</a>
                             </li>
                              <li>
-                                <a href="crudInscripciones.jsp">Inscripciones</a>
+                                <a href="crudInscripciones.jsp">Lista de Formularios</a>
                             </li>
                         
                              <li>
-                                <a href="crudProfesores.jsp">Profesores</a>
+                                <a href="crudProfesores.jsp">Lista de Herramientas</a>
                             </li>
                             <li>
-                                <a href="crudCursos.jsp">Cursos</a>
+                                <a href="crudCursos.jsp">Lista de Inventarios</a>
+                            </li>
+                            <li>
+                                <a href="crudCursos.jsp">Lista de Mantenimientos</a>
                             </li>
                         
                         
@@ -122,13 +131,13 @@ and open the template in the editor.
                 <!-- Main jumbotron for a primary marketing message or call to action -->
                 <div class="jumbotron">
                     <h1>Universidad Sergio Arboleda</h1>
-                    <p>Sistema de registro Ejercicio 1 - Bases de Datos</p>
+                    <p>Sistema de registro - Proyecto Primer Corte - Bases de Datos</p>
                     <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
                     </p>
                 </div>
 
                 <div class="page-header">
-                    <h1>Sistema de Registro de Estudiantes </h1>
+                    <h1>Sistema de Inventario </h1>
                 </div>
              
                 <p>
@@ -155,4 +164,4 @@ and open the template in the editor.
 
 </body>
 
-</html>6
+</html>

@@ -159,7 +159,7 @@
                             </div>
                       <input type="submit" name="Registrar" value="Registrar" class="btn btn-primary btn-lg" role="button"  >
                          <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
-                      
+                       </form>
                       </div>
                            
                              

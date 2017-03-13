@@ -1,17 +1,10 @@
 <%-- 
-    Document   : home
-    Created on : Feb 10, 2017, 10:30:11 AM
+    Document   : herramientaRegistro
+    Created on : Mar 13, 2017, 4:15:08 AM
     Author     : james
 --%>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,12 +57,12 @@ and open the template in the editor.
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                         <a href="estudiante.jsp"><i class="fa fa-fw fa-user"></i> Estudiante</a>
+                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
-                     <li>
+                     <li class="active">
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
@@ -114,38 +107,88 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Interfaz Principal
+                          Herramienta
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Modo Privilegiado
+                                <i class="fa fa-desktop"></i> Registro de Herramienta
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                    <h1>Universidad Sergio Arboleda</h1>
-                    <p>Sistema de registro - Proyecto Primer Corte - Bases de Datos</p>
-                    <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
-                    </p>
-                </div>
-
                 <div class="page-header">
                     <h1>Sistema de Inventario </h1>
                 </div>
-             
                 <p>
-                    Prototipo para sistema de registro usando arboles para bases de datos.
+                    Introduzca los datos de la herramienta que desea guardar.
                 </p>
 
                 <div class="page-header">
-                   
+                    
+                   <form action="herramientaControlador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
+            
+                                
+                            <div class="form-group">
+                                <label><h3>ID del dispositivo</h3>
+                                </label>
+                                <input type="text" class="form-control" name="idDispositivo">
+                                <p class="help-block">Ej: 1056373.</p>
+                            </div>
+                          <div class="form-group">
+                                <label><h3>ID del Mantenimiento</h3>
+                                </label>
+                                <input type="text" class="form-control" name="idMantenimiento">
+                                <p class="help-block">Ej: 121313</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3> Numero del Serial</h3>
+                                </label>
+                                <input type="text" class="form-control" name="noSerial">
+                                <p class="help-block">Ej: 1231341</p>
+                            </div>
+                         <div class="form-group">
+                                <label><h3>ID del Inventario</h3>
+                                </label>
+                                <input type="text" class="form-control" name="idInventario">
+                                <p class="help-block">Ej: 1056373.</p>
+                            </div>
+                               <div class="form-group">
+                                <label><h3>Nombre de la Herramienta</h3>
+                                </label>
+                                <input type="text" class="form-control" name="nombreHerramienta">
+                                <p class="help-block">Ej: Multimetro</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3>Breve descripción de la herramienta</h3>
+                                </label>
+                                <input type="text" class="form-control" name="descripcionHerramienta">
+                                <p class="help-block">Ej: Fuente de poder de Weilsh</p>
+                            </div>
+                              <div class="form-group">
+                                <label><h3>Status Herramienta</h3>
+                                </label>
+                                <input type="text" class="form-control" name="statusHerramienta">
+                                <p class="help-block">Ej: Dañada, Disponible, Prestada.</p>
+                            </div>
+                             
+                            <div class="form-group">
+                                <label><h3>Cantidad de Arreglos</h3>
+                                </label>
+                                <input type="text" class="form-control" name="cantidadArreglos">
+                                <p class="help-block">Ej: 1.</p>
+                            </div>
+                            
+                      <input type="submit" name="Registrar" value="Registrar" class="btn btn-primary btn-lg" role="button"  >
+                         <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
+                       </form>
+                      </div>
+                           
+                             
+                        </form>
 
             </div>
             <!-- /.container-fluid -->

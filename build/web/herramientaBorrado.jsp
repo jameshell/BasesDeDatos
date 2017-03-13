@@ -1,14 +1,8 @@
 <%-- 
-    Document   : home
-    Created on : Feb 10, 2017, 10:30:11 AM
+    Document   : herramientaBorrado
+    Created on : Mar 13, 2017, 4:55:08 AM
     Author     : james
 --%>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -63,8 +57,8 @@ and open the template in the editor.
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                         <a href="estudiante.jsp"><i class="fa fa-fw fa-user"></i> Estudiante</a>
+                    <li class="active">
+                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
@@ -114,38 +108,42 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Interfaz Principal
+                            Estudiante
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Modo Privilegiado
+                                <i class="fa fa-desktop"></i> Administración de Estudiantes
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                    <h1>Universidad Sergio Arboleda</h1>
-                    <p>Sistema de registro - Proyecto Primer Corte - Bases de Datos</p>
-                    <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
-                    </p>
-                </div>
-
                 <div class="page-header">
                     <h1>Sistema de Inventario </h1>
                 </div>
-             
                 <p>
-                    Prototipo para sistema de registro usando arboles para bases de datos.
+                    Escriba el id de la herramienta que desea borrar.
                 </p>
 
                 <div class="page-header">
-                   
+                 
+                   <form action="herramientaBorrador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
+            
+                                
+                            <div class="form-group">
+                                <label><h3>Id de la herramienta que desea eliminar:</h3>
+                                </label>
+                                <input type="text" class="form-control" name="idherramienta">
+                                <p class="help-block">Ej: 1056373.</p>
+                            </div>
+                          
+                            
+                      <input type="submit" name="Registrar" value="Eliminar" class="btn btn-primary btn-lg" role="button"  >
+                         <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
+                       </form>
 
             </div>
             <!-- /.container-fluid -->

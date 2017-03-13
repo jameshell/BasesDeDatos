@@ -1,14 +1,8 @@
 <%-- 
-    Document   : home
-    Created on : Feb 10, 2017, 10:30:11 AM
+    Document   : mantenimiento
+    Created on : Mar 13, 2017, 2:40:46 AM
     Author     : james
 --%>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -64,7 +58,7 @@ and open the template in the editor.
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                         <a href="estudiante.jsp"><i class="fa fa-fw fa-user"></i> Estudiante</a>
+                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
@@ -75,7 +69,7 @@ and open the template in the editor.
                            <li>
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
-                           <li>
+                           <li class="active">
                         <a href="registroInscripciones.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
                     </li>
                   
@@ -114,38 +108,31 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Interfaz Principal
+                          Mantenimiento
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Modo Privilegiado
+                                <i class="fa fa-desktop"></i> Administración de Mantenimiento
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                    <h1>Universidad Sergio Arboleda</h1>
-                    <p>Sistema de registro - Proyecto Primer Corte - Bases de Datos</p>
-                    <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
-                    </p>
-                </div>
-
                 <div class="page-header">
                     <h1>Sistema de Inventario </h1>
                 </div>
-             
                 <p>
-                    Prototipo para sistema de registro usando arboles para bases de datos.
+                    Decida que tipo de acción tomar respecto a los datos de los mantenimientos hechos.
                 </p>
 
                 <div class="page-header">
-                   
+                    
+                   <a href="http://google.com" class="btn btn-primary btn-lg">Registro</a>
+                       <a href="http://google.com" class="btn btn-primary btn-lg">Eliminación</a>
+                           <a href="http://google.com" class="btn btn-primary btn-lg">Actualización</a>
 
             </div>
             <!-- /.container-fluid -->

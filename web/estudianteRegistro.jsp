@@ -1,17 +1,10 @@
 <%-- 
-    Document   : home
-    Created on : Feb 10, 2017, 10:30:11 AM
+    Document   : estudianteRegistro
+    Created on : Mar 13, 2017, 2:54:25 AM
     Author     : james
 --%>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,8 +56,8 @@ and open the template in the editor.
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                         <a href="estudiante.jsp"><i class="fa fa-fw fa-user"></i> Estudiante</a>
+                    <li class="active">
+                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
                         <a href="registroCursos.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
@@ -114,38 +107,69 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Interfaz Principal
+                          Estudiante
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-desktop"></i> Modo Privilegiado
+                                <i class="fa fa-desktop"></i> Registro de Estudiante
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                    <h1>Universidad Sergio Arboleda</h1>
-                    <p>Sistema de registro - Proyecto Primer Corte - Bases de Datos</p>
-                    <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
-                    </p>
-                </div>
-
                 <div class="page-header">
                     <h1>Sistema de Inventario </h1>
                 </div>
-             
                 <p>
-                    Prototipo para sistema de registro usando arboles para bases de datos.
+                    Introduzca los datos del estudiante que desea registrar a la mmemoria.
                 </p>
 
                 <div class="page-header">
-                   
+                    
+                   <form action="estudianteControlador" method="POST"> <!--ATENCION: la palabra action indica el tipo de acción que va a realizar el formulario-->
+            
+                                
+                            <div class="form-group">
+                                <label><h3>Cédula del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="cedulaEstudiante">
+                                <p class="help-block">Ej: 1056373.</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3> Nombres del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="nombreEstudiante">
+                                <p class="help-block">Ej: Nicolas</p>
+                            </div>
+                               <div class="form-group">
+                                <label><h3>Apellidos del Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="apellidoEstudiante">
+                                <p class="help-block">Ej: Infante</p>
+                            </div>
+                            <div class="form-group">
+                                <label><h3>Semestre en el cual se encuentra el Estudiante</h3>
+                                </label>
+                                <input type="text" class="form-control" name="semestreEstudiante">
+                                <p class="help-block">Ej: 3</p>
+                            </div>
+                              <div class="form-group">
+                                <label><h3>Carrera</h3>
+                                </label>
+                                <input type="text" class="form-control" name="carreraEstudiante">
+                                <p class="help-block">Ej: Ingeniería de Sistemas</p>
+                            </div>
+                            
+                      <input type="submit" name="Registrar" value="Registrar" class="btn btn-primary btn-lg" role="button"  >
+                         <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
+                       </form>
+                      </div>
+                           
+                             
+                        </form>
 
             </div>
             <!-- /.container-fluid -->

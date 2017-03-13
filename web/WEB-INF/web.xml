@@ -19,6 +19,14 @@
         <servlet-name>BorradoInscripciones</servlet-name>
         <servlet-class>Controladores.BorradoInscripciones</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>estudianteControlador</servlet-name>
+        <servlet-class>Controladores.estudianteControlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>herrmientaControlador</servlet-name>
+        <servlet-class>Controladores.herrmientaControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
@@ -34,6 +42,14 @@
     <servlet-mapping>
         <servlet-name>BorradoInscripciones</servlet-name>
         <url-pattern>/BorradoInscripciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>estudianteControlador</servlet-name>
+        <url-pattern>/estudianteControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>herrmientaControlador</servlet-name>
+        <url-pattern>/herrmientaControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
