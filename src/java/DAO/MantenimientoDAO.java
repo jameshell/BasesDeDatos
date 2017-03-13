@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Arboles.TreeEstudiante;
+import Arboles.TreeMantenimiento;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,187 +14,148 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Datos.Estudiantes;
+import Datos.Mantenimientos;
 
 /**
  *
  * @author Carlos
  */
 public class MantenimientoDAO {
-    private RandomAccessFile estudianteDB;
-    public TreeEstudiante treeEstudiante;
+    private RandomAccessFile MantenimientoDB;
+    public TreeMantenimiento TreeMantenimiento;
     public MantenimientoDAO() throws FileNotFoundException{
-      this.treeEstudiante=new TreeEstudiante();
-      this.estudianteDB = new RandomAccessFile("estudiante.txt", "rw");
-      //this.estudianteDB = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\estudiante.txt", "rw");
-      File f =new File("estudiante.txt");
+      this.TreeMantenimiento=new TreeMantenimiento();
+      this.MantenimientoDB = new RandomAccessFile("Mantenimiento.txt", "rw");
+      //this.MantenimientoDB = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\estudiante.txt", "rw");
+      File f =new File("Mantenimiento.txt");
         System.out.println("Ubicacion del archivo de Estudiantes: \n");
         System.out.println(f.getAbsolutePath());
     }
-    public boolean insertar(Estudiantes estudiante) throws IOException{
-        long posicionMemoria = this.estudianteDB.length();
-        this.estudianteDB.seek(posicionMemoria);
-        this.estudianteDB.writeInt(estudiante.getCedulaEstudiante()); //id
-        treeEstudiante.insertar(estudiante.getCedulaEstudiante(), (int)posicionMemoria);
+    public boolean insertar(Mantenimientos Mantenimiento) throws IOException{
+        long posicionMemoria = this.MantenimientoDB.length();
+        this.MantenimientoDB.seek(posicionMemoria);
+        this.MantenimientoDB.writeInt(Mantenimiento.getIdMantenimiento()); //id
+        TreeMantenimiento.insertar(Mantenimiento.getIdMantenimiento(), (int)posicionMemoria);
+        this.MantenimientoDB.writeInt(Mantenimiento.getIdDispositivo());
         for(int i = 0;i < 20; i++){
-            if (i<estudiante.getNombreEstudiante().length) {
-                    char letra = estudiante.getNombreEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
+            if (i<Mantenimiento.getTituloMantenimiento().length) {
+                    char letra = Mantenimiento.getTituloMantenimiento()[i];
+                    this.MantenimientoDB.writeChar(letra);
                 }else{
                     char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
+                    this.MantenimientoDB.writeChar(letra);
             }
           
         }
         
-        for(int i = 0;i < 20; i++){
-          if (i<estudiante.getApellidoEstudiante().length) {
-                    char letra = estudiante.getApellidoEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
+        for(int i = 0;i < 200; i++){
+          if (i<Mantenimiento.getDescripcionMantenimiento().length) {
+                    char letra = Mantenimiento.getDescripcionMantenimiento()[i];
+                    this.MantenimientoDB.writeChar(letra);
                 }else{
                     char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
-            }
-        }
-      
-        this.estudianteDB.writeInt(estudiante.getSemestreEstudiante());
-        for(int i = 0;i <40; i++){
-          if (i<estudiante.getCarreraEstudiante().length) {
-                    char letra = estudiante.getCarreraEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
-                }else{
-                    char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
+                    this.MantenimientoDB.writeChar(letra);
             }
         }
         
         return true;
     }
     
-    public boolean actualizar(Estudiantes estudiante) throws IOException{
-        if (treeEstudiante.getTreeMap().containsKey(estudiante.getCedulaEstudiante())) {
-        int pos=buscar(estudiante.getCedulaEstudiante());
-        this.estudianteDB.seek(pos);
-        this.estudianteDB.writeInt(estudiante.getCedulaEstudiante()); //id
+    public boolean actualizar(Mantenimientos Mantenimiento) throws IOException{
+        if (TreeMantenimiento.getTreeMap().containsKey(Mantenimiento.getIdMantenimiento())) {
+        int pos=buscar(Mantenimiento.getIdMantenimiento());
+        this.MantenimientoDB.seek(pos);
+        this.MantenimientoDB.writeInt(Mantenimiento.getIdMantenimiento()); //id
+                this.MantenimientoDB.writeInt(Mantenimiento.getIdDispositivo());
         for(int i = 0;i < 20; i++){
-            
-            if (i<estudiante.getNombreEstudiante().length) {
-                    char letra = estudiante.getNombreEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
+            if (i<Mantenimiento.getTituloMantenimiento().length) {
+                    char letra = Mantenimiento.getTituloMantenimiento()[i];
+                    this.MantenimientoDB.writeChar(letra);
                 }else{
                     char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
+                    this.MantenimientoDB.writeChar(letra);
             }
           
         }
         
-        for(int i = 0;i < 20; i++){
-          if (i<estudiante.getApellidoEstudiante().length) {
-                    char letra = estudiante.getApellidoEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
+        for(int i = 0;i < 200; i++){
+          if (i<Mantenimiento.getDescripcionMantenimiento().length) {
+                    char letra = Mantenimiento.getDescripcionMantenimiento()[i];
+                    this.MantenimientoDB.writeChar(letra);
                 }else{
                     char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
-            }
-        }
-      
-        this.estudianteDB.writeInt(estudiante.getSemestreEstudiante());
-        for(int i = 0;i < 40; i++){
-          if (i<estudiante.getCarreraEstudiante().length) {
-                    char letra = estudiante.getCarreraEstudiante()[i];
-                    this.estudianteDB.writeChar(letra);
-                }else{
-                    char letra = ' ';
-                    this.estudianteDB.writeChar(letra);
+                    this.MantenimientoDB.writeChar(letra);
             }
         }
         return true;
         }
       return false;
     }
-    public int buscar(int idEstudiante){
-        int b=treeEstudiante.buscaribyte(idEstudiante);
+    public int buscar(int idMantenimiento){
+        int b=TreeMantenimiento.buscaribyte(idMantenimiento);
         if (b!=-1) {
             return b;
         }else{
       return -1;
         }
     }
-    public boolean borrar(int idEstudiante) throws IOException{
-        if(treeEstudiante.getTreeMap().containsKey(idEstudiante)){
-            treeEstudiante.borrar(idEstudiante);
-            //treeEstudiante.inicializar();
+    public boolean borrar(int idMantenimiento) throws IOException{
+        if(TreeMantenimiento.getTreeMap().containsKey(idMantenimiento)){
+            TreeMantenimiento.borrar(idMantenimiento);
+            //TreeMantenimiento.inicializar();
             return true;
         }
       return false;
     }
-    public void Listar(int idEstudiante) throws IOException{
-        int pos=buscar(idEstudiante);
-        estudianteDB.seek(pos);
-            System.out.print(this.estudianteDB.readInt());
-            System.out.print(" ");
+    public Mantenimientos Listar(int idMantenimiento) throws IOException{
+        int pos=buscar(idMantenimiento);
+        MantenimientoDB.seek(pos);
+            int IdMantenimiento=MantenimientoDB.readInt();
+            int IdDispositivo=MantenimientoDB.readInt();
+            String Titulo=new String();
             for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
+               char c=this.MantenimientoDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Titulo=Titulo+c;
                }
            }
-           System.out.print(" ");
-           for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
-               if (c==' ') {
-                   
-               }else{
-                   System.out.print(c);
-               }
+           String Detalles=new String();
+           for(int j = 0;j<200;j++){
+               char c=this.MantenimientoDB.readChar();
+               Detalles=Detalles+c;
            }
-           System.out.print(" ");
-           System.out.println(this.estudianteDB.readInt());
-           System.out.println("");
+           return new Mantenimientos(IdMantenimiento, IdDispositivo, Titulo.toCharArray(), Detalles.toCharArray());
     }
-    public ArrayList<Estudiantes> listarTodo() throws IOException{
-        ArrayList<Estudiantes> al=new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry:treeEstudiante.getTreeMap().entrySet()){
+    public ArrayList<Mantenimientos> listarTodo() throws IOException{
+        ArrayList<Mantenimientos> al=new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry:TreeMantenimiento.getTreeMap().entrySet()){
             int pos=buscar(entry.getKey());
-            estudianteDB.seek(pos);
-            int cedula=this.estudianteDB.readInt();
-            String Nombre=new String();
+            MantenimientoDB.seek(pos);
+            int IdMantenimiento=this.MantenimientoDB.readInt();
+            int IdDispositivo=this.MantenimientoDB.readInt();
+            String Titulo=new String();
             for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
+               char c=this.MantenimientoDB.readChar();
                if (c==' ') {
                    
                }else{
-                   Nombre=Nombre+c;
+                   Titulo=Titulo+c;
                }
             }
-            String Apellido=new String();
-           for(int j = 0;j<20;j++){
-               char c=this.estudianteDB.readChar();
-               if (c==' ') {
-                   
-               }else{
-                   Apellido=Apellido+c;
-               }
+            String Detalle=new String();
+           for(int j = 0;j<200;j++){
+               char c=this.MantenimientoDB.readChar();
+                   Detalle=Detalle+c;
            }
-           int Semestre=this.estudianteDB.readInt();
-           String Carrera=new String();
-           for(int j = 0;j<40;j++){
-               char c=this.estudianteDB.readChar();
-               if (c==' ') {
-                   
-               }else{
-                   Carrera=Carrera+c;
-               }
-           }
-           al.add(new Estudiantes(cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray()));
+           al.add(new Mantenimientos(IdMantenimiento, IdDispositivo, Titulo.toCharArray(), Detalle.toCharArray()));
         }
         
        return al;
     }
     
     public void destructor() throws IOException{
-      this.estudianteDB.close();
+      this.MantenimientoDB.close();
     }
 }

@@ -6,7 +6,10 @@
 package Ejecucion;
 
 import DAO.EstudianteDAO;
+import DAO.MantenimientoDAO;
 import Datos.Estudiantes;
+import Datos.Mantenimientos;
+import java.awt.PageAttributes;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +20,5 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        EstudianteDAO edao=new EstudianteDAO();
-        ArrayList<Estudiantes> a=edao.listarTodo();
-        System.out.println("Ejecucion.Main.main()");
     }
 }

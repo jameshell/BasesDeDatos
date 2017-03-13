@@ -11,9 +11,16 @@ package Datos;
  */
 public class Mantenimientos {
     int IdMantenimiento;
-    int Serial;
+    int IdDispositivo;
     char[]tituloMantenimiento;
     char[]descripcionMantenimiento;
+
+    public Mantenimientos(int IdMantenimiento, int IdDispositivo, char[] tituloMantenimiento, char[] descripcionMantenimiento) {
+        this.IdMantenimiento = IdMantenimiento;
+        this.IdDispositivo = IdDispositivo;
+        this.tituloMantenimiento = tituloMantenimiento;
+        this.descripcionMantenimiento = descripcionMantenimiento;
+    }
 
     public int getIdMantenimiento() {
         return IdMantenimiento;
@@ -23,12 +30,12 @@ public class Mantenimientos {
         this.IdMantenimiento = IdMantenimiento;
     }
 
-    public int getSerial() {
-        return Serial;
+    public int getIdDispositivo() {
+        return IdDispositivo;
     }
 
-    public void setSerial(int Serial) {
-        this.Serial = Serial;
+    public void setIdDispositivo(int IdDispositivo) {
+        this.IdDispositivo = IdDispositivo;
     }
 
     public char[] getTituloMantenimiento() {
@@ -45,6 +52,11 @@ public class Mantenimientos {
 
     public void setDescripcionMantenimiento(char[] descripcionMantenimiento) {
         this.descripcionMantenimiento = descripcionMantenimiento;
+    }
+
+    @Override
+    public String toString() {
+        return "Mantenimientos{" + "IdMantenimiento=" + IdMantenimiento + ", IdDispositivo=" + IdDispositivo + ", tituloMantenimiento=" + String.valueOf(tituloMantenimiento) + ", descripcionMantenimiento=" + String.valueOf(descripcionMantenimiento) + '}';
     }
     
 }

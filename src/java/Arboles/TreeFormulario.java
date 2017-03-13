@@ -17,40 +17,40 @@ import java.util.logging.Logger;
  *
  * @author Carlos
  */
-public class TreeMantenimiento {
+public class TreeFormulario {
     private TreeMap<Integer, Integer> treeMap;
-    private RandomAccessFile TreeMantenimiento;
-    public TreeMantenimiento() {
+    private RandomAccessFile TreeFormulario;
+    public TreeFormulario() {
         treeMap=new TreeMap<>();
         try {
             inicializar();
         } catch (IOException ex) {
-            Logger.getLogger(TreeMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TreeFormulario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     // key=idestudiente value=bytes
     public boolean insertar(int key,int value) throws IOException{
         if (treeMap.isEmpty()) {
             treeMap.put(key, value);
-            TreeMantenimiento.writeInt(key);
-            TreeMantenimiento.writeInt(value);
+            TreeFormulario.writeInt(key);
+            TreeFormulario.writeInt(value);
         }else{
-            long Tamano=TreeMantenimiento.length();
-            TreeMantenimiento.seek(Tamano);
-            TreeMantenimiento.writeInt(key);
-            TreeMantenimiento.writeInt(value);
+            long Tamano=TreeFormulario.length();
+            TreeFormulario.seek(Tamano);
+            TreeFormulario.writeInt(key);
+            TreeFormulario.writeInt(value);
             treeMap.put(key, value);
         }
         return true;
     }
     public void inicializar() throws FileNotFoundException, IOException{
-        this.TreeMantenimiento = new RandomAccessFile("TreeMantenimiento.txt", "rw");
-        //this.TreeMantenimiento = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeMantenimiento.txt", "rw");
-        if (TreeMantenimiento.length()!=0) {
-            //System.out.println(TreeMantenimiento.length());
-            for (int i = 0; i < TreeMantenimiento.length(); i=i+8) {
-                int Key=TreeMantenimiento.readInt();
-                int Value=TreeMantenimiento.readInt();
+        this.TreeFormulario = new RandomAccessFile("TreeFormulario.txt", "rw");
+        //this.TreeFormulario = new RandomAccessFile("C:\\Users\\Carlos\\AppData\\Roaming\\NetBeans\\8.2\\config\\GF_4.1.1\\domain1\\config\\TreeFormulario.txt", "rw");
+        if (TreeFormulario.length()!=0) {
+            //System.out.println(TreeFormulario.length());
+            for (int i = 0; i < TreeFormulario.length(); i=i+8) {
+                int Key=TreeFormulario.readInt();
+                int Value=TreeFormulario.readInt();
                 treeMap.put(Key, Value);
             }
         }else{
@@ -71,18 +71,18 @@ public class TreeMantenimiento {
     }
     public void borrar(int key){
         try {
-            TreeMantenimiento.setLength(0);
+            TreeFormulario.setLength(0);
             for (Map.Entry<Integer, Integer> entry:treeMap.entrySet()) {
                 if (entry.getKey()!=key) {
-                    TreeMantenimiento.writeInt(entry.getKey());
-                    TreeMantenimiento.writeInt(entry.getValue());
+                    TreeFormulario.writeInt(entry.getKey());
+                    TreeFormulario.writeInt(entry.getValue());
                 }
             }
-            System.out.println(TreeMantenimiento.length());
+            System.out.println(TreeFormulario.length());
             treeMap.clear();
             inicializar();
         } catch (IOException ex) {
-            Logger.getLogger(TreeMantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TreeFormulario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         

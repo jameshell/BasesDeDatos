@@ -128,31 +128,39 @@ public class EstudianteDAO {
         }
       return false;
     }
-    public void Listar(int idEstudiante) throws IOException{
+    public Estudiantes Listar(int idEstudiante) throws IOException{
         int pos=buscar(idEstudiante);
-        estudianteDB.seek(pos);
-            System.out.print(this.estudianteDB.readInt());
-            System.out.print(" ");
+            estudianteDB.seek(pos);
+            int Cedula=this.estudianteDB.readInt();
+            String Nombre=new String();
             for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Nombre=Nombre+c;
                }
            }
-           System.out.print(" ");
+           String Apellido=new String();
            for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Apellido=Apellido+c;
                }
            }
-           System.out.print(" ");
-           System.out.println(this.estudianteDB.readInt());
-           System.out.println("");
+           int Semestre=this.estudianteDB.readInt();
+           String Carrera=new String();
+           for(int j = 0;j<40;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   Carrera=Carrera+c;
+               }
+           }
+           return new Estudiantes(Cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray());
     }
     public ArrayList<Estudiantes> listarTodo() throws IOException{
         ArrayList<Estudiantes> al=new ArrayList<>();
