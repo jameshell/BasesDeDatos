@@ -12,11 +12,13 @@ package Datos;
 public class Estudiantes {
     private int CedulaEstudiante;
     private char[] NombreEstudiante;
+    private char[] ApellidoEstudiante;
     private int SemestreEstudiante;
     private char[] CarreraEstudiante;
 
-    public Estudiantes(int CedulaEstudiante, char[] NombreEstudiante, int SemestreEstudiante, char[] CarreraEstudiante) {
+    public Estudiantes(int CedulaEstudiante, char[] NombreEstudiante,char [] ApellidoEstudiante, int SemestreEstudiante, char[] CarreraEstudiante) {
         this.CedulaEstudiante = CedulaEstudiante;
+        this.ApellidoEstudiante=ApellidoEstudiante;
         this.NombreEstudiante = NombreEstudiante;
         this.SemestreEstudiante = SemestreEstudiante;
         this.CarreraEstudiante = CarreraEstudiante;
@@ -54,4 +56,17 @@ public class Estudiantes {
         this.CarreraEstudiante = CarreraEstudiante;
     }
     
+
+    public char[] getApellidoEstudiante() {
+        return ApellidoEstudiante;
+    }
+
+    public void setApellidoEstudiante(char[] ApellidoEstudiante) {
+        this.ApellidoEstudiante = ApellidoEstudiante;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiantes{" + "CedulaEstudiante=" + CedulaEstudiante + ", NombreEstudiante=" + String.valueOf(NombreEstudiante) + ", ApellidoEstudiante=" + String.valueOf(ApellidoEstudiante) + ", SemestreEstudiante=" + SemestreEstudiante + ", CarreraEstudiante=" + String.valueOf(CarreraEstudiante)+ '}'+"\n";
+    }
 }

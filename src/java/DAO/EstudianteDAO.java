@@ -155,41 +155,43 @@ public class EstudianteDAO {
            System.out.println("");
     }
     public ArrayList<Estudiantes> listarTodo() throws IOException{
+        ArrayList<Estudiantes> al=new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry:treeEstudiante.getTreeMap().entrySet()){
             int pos=buscar(entry.getKey());
             estudianteDB.seek(pos);
-            System.out.print(this.estudianteDB.readInt());
-            System.out.print(" ");
+            int cedula=this.estudianteDB.readInt();
+            String Nombre=new String();
             for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Nombre=Nombre+c;
                }
             }
-           System.out.print(" ");
+            String Apellido=new String();
            for(int j = 0;j<20;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Apellido=Apellido+c;
                }
            }
-           System.out.print(" ");
-           System.out.println(this.estudianteDB.readInt());
-           System.out.println("");
-           for(int j = 0;j<20;j++){
+           int Semestre=this.estudianteDB.readInt();
+           String Carrera=new String();
+           for(int j = 0;j<40;j++){
                char c=this.estudianteDB.readChar();
                if (c==' ') {
                    
                }else{
-                   System.out.print(c);
+                   Carrera=Carrera+c;
                }
            }
+           al.add(new Estudiantes(cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray()));
         }
-       return null;
+        
+       return al;
     }
     
     public void destructor() throws IOException{
