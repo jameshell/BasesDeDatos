@@ -109,13 +109,13 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <a href=\"registroCursos.jsp\"><i class=\"fa fa-fw fa-table\"></i> Formularios</a>\n");
       out.write("                    </li>\n");
       out.write("                     <li>\n");
-      out.write("                        <a href=\"registroInscripciones.jsp\"><i class=\"fa fa-fw fa-edit\"></i> Herramienta</a>\n");
+      out.write("                        <a href=\"herramienta.jsp\"><i class=\"fa fa-fw fa-edit\"></i> Herramienta</a>\n");
       out.write("                    </li>\n");
       out.write("                           <li>\n");
       out.write("                        <a href=\"registroInscripciones.jsp\"><i class=\"fa fa-fw fa-file\"></i> Inventario</a>\n");
       out.write("                    </li>\n");
       out.write("                           <li>\n");
-      out.write("                        <a href=\"registroInscripciones.jsp\"><i class=\"fa fa-fw fa-dashboard\"></i> Mantenimiento</a>\n");
+      out.write("                        <a href=\"mantenimiento.jsp\"><i class=\"fa fa-fw fa-dashboard\"></i> Mantenimiento</a>\n");
       out.write("                    </li>\n");
       out.write("                  \n");
       out.write("                    <li>\n");
@@ -157,7 +157,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </h1>\n");
       out.write("                        <ol class=\"breadcrumb\">\n");
       out.write("                            <li>\n");
-      out.write("                                <i class=\"fa fa-dashboard\"></i>  <a href=\"index.html\">Dashboard</a>\n");
+      out.write("                                <i class=\"fa fa-dashboard\"></i>  <a href=\"home.jsp\">Dashboard</a>\n");
       out.write("                            </li>\n");
       out.write("                            <li class=\"active\">\n");
       out.write("                                <i class=\"fa fa-desktop\"></i> Modo Privilegiado\n");

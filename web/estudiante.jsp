@@ -68,13 +68,13 @@ and open the template in the editor.
                          <a href="registroCursos.jsp"><i class="fa fa-fw fa-user" ></i> Estudiante</a>
                     </li>
                      <li>
-                        <a href="-----------jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
+                        <a href="formulario.jsp"><i class="fa fa-fw fa-table"></i> Formularios</a>
                     </li>
                      <li>
                         <a href="herramienta.jsp"><i class="fa fa-fw fa-edit"></i> Herramienta</a>
                     </li>
                            <li>
-                        <a href="----------------.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
+                        <a href="inventario.jsp"><i class="fa fa-fw fa-file"></i> Inventario</a>
                     </li>
                            <li>
                         <a href="mantenimiento.jsp"><i class="fa fa-fw fa-dashboard"></i> Mantenimiento</a>
