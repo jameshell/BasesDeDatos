@@ -107,6 +107,16 @@ public class EstudianteDAO {
                     char letra = ' ';
                     this.estudianteDB.writeChar(letra);
             }
+          
+        }
+        for(int i = 0;i < 20; i++){
+          if (i<estudiante.getApellidoEstudiante().length) {
+                    char letra = estudiante.getApellidoEstudiante()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
         }
         return true;
         }
@@ -160,7 +170,16 @@ public class EstudianteDAO {
                    Carrera=Carrera+c;
                }
            }
-           return new Estudiantes(Cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray());
+           String Encargado=new String();
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   Encargado=Encargado+c;
+               }
+           }
+           return new Estudiantes(Cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray(),Encargado.toCharArray());
     }
     public ArrayList<Estudiantes> listarTodo() throws IOException{
         ArrayList<Estudiantes> al=new ArrayList<>();
@@ -196,7 +215,16 @@ public class EstudianteDAO {
                    Carrera=Carrera+c;
                }
            }
-           al.add(new Estudiantes(cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray()));
+           String Encargado=new String();
+           for(int j = 0;j<20;j++){
+               char c=this.estudianteDB.readChar();
+               if (c==' ') {
+                   
+               }else{
+                   Encargado=Encargado+c;
+               }
+           }
+           al.add(new Estudiantes(cedula, Nombre.toCharArray(), Apellido.toCharArray(), Semestre, Carrera.toCharArray(),Encargado.toCharArray()));
         }
         
        return al;

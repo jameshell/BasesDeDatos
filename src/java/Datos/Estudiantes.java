@@ -15,13 +15,15 @@ public class Estudiantes {
     private char[] ApellidoEstudiante;
     private int SemestreEstudiante;
     private char[] CarreraEstudiante;
+    private char[] EncargadodelRegistro;
 
-    public Estudiantes(int CedulaEstudiante, char[] NombreEstudiante,char [] ApellidoEstudiante, int SemestreEstudiante, char[] CarreraEstudiante) {
+    public Estudiantes(int CedulaEstudiante, char[] NombreEstudiante,char [] ApellidoEstudiante, int SemestreEstudiante, char[] CarreraEstudiante,char[] EncargadodelRegistro) {
         this.CedulaEstudiante = CedulaEstudiante;
         this.ApellidoEstudiante=ApellidoEstudiante;
         this.NombreEstudiante = NombreEstudiante;
         this.SemestreEstudiante = SemestreEstudiante;
         this.CarreraEstudiante = CarreraEstudiante;
+        this.EncargadodelRegistro=EncargadodelRegistro;
     }
 
     public int getCedulaEstudiante() {
@@ -54,6 +56,14 @@ public class Estudiantes {
 
     public void setCarreraEstudiante(char[] CarreraEstudiante) {
         this.CarreraEstudiante = CarreraEstudiante;
+    }
+
+    public char[] getEncargadodelRegistro() {
+        return EncargadodelRegistro;
+    }
+
+    public void setEncargadodelRegistro(char[] EncargadodelRegistro) {
+        this.EncargadodelRegistro = EncargadodelRegistro;
     }
     
 
