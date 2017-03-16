@@ -162,6 +162,7 @@
                                 <input type="text" class="form-control" name="carreraEstudiante">
                                 <p class="help-block">Ej: Ingeniería de Sistemas</p>
                             </div>
+                       
                             
                       <input type="submit" name="Registrar" value="Registrar" class="btn btn-primary btn-lg" role="button"  >
                          <input type="reset" name="reset" value="reset" class="btn btn-primary btn-lg" role="button"  >
