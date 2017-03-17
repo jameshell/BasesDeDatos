@@ -67,7 +67,15 @@ public class EstudianteDAO {
                     this.estudianteDB.writeChar(letra);
             }
         }
-        
+        for(int i = 0;i < 20; i++){
+          if (i<estudiante.getEncargadodelRegistro().length) {
+                    char letra = estudiante.getEncargadodelRegistro()[i];
+                    this.estudianteDB.writeChar(letra);
+                }else{
+                    char letra = ' ';
+                    this.estudianteDB.writeChar(letra);
+            }
+        }
         return true;
     }
     

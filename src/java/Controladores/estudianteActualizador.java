@@ -47,9 +47,10 @@ public class estudianteActualizador extends HttpServlet {
                  
                   String carreraEstudiante= request.getParameter("carreraEstudiante");
                 char[] carreraEst=  carreraEstudiante.toCharArray();
-
+                String encargadoRegistro=request.getParameter("encargadodelRegistro");
+                char[] encargadoRegi=encargadoRegistro.toCharArray();
                 
-                Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst);
+                Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst,encargadoRegi);
                 
                 if(estudiantedao.buscar(cedulaEstudiante)==-1){
                     System.out.println("No se encontro el estudiante");

@@ -77,6 +77,6 @@ public class Estudiantes {
 
     @Override
     public String toString() {
-        return "Estudiantes{" + "CedulaEstudiante=" + CedulaEstudiante + ", NombreEstudiante=" + String.valueOf(NombreEstudiante) + ", ApellidoEstudiante=" + String.valueOf(ApellidoEstudiante) + ", SemestreEstudiante=" + SemestreEstudiante + ", CarreraEstudiante=" + String.valueOf(CarreraEstudiante)+ '}'+"\n";
+        return "Estudiantes{" + "CedulaEstudiante=" + CedulaEstudiante + ", NombreEstudiante=" + String.valueOf(NombreEstudiante) + ", ApellidoEstudiante=" + String.valueOf(ApellidoEstudiante) + ", SemestreEstudiante=" + SemestreEstudiante + ", CarreraEstudiante=" + String.valueOf(CarreraEstudiante)+"Encargado Estudiante"+ String.valueOf(EncargadodelRegistro)+'}'+"\n";
     }
 }

@@ -50,9 +50,12 @@ public class estudianteControlador extends HttpServlet {
                  
                   String carreraEstudiante= request.getParameter("carreraEstudiante");
                 char[] carreraEst=  carreraEstudiante.toCharArray();
-
+                String encargadoRegistro=request.getParameter("encargadodelRegistro");
+                char[] encargadoRegi=encargadoRegistro.toCharArray();
                 
-                Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst);
+                Estudiantes estudiante= new Estudiantes(cedulaEstudiante,nombreEst,nombreap,semestreEstudiante,carreraEst,encargadoRegi);
+                estudiantedao.insertar(estudiante);
+                System.out.println(estudiantedao.listarTodo());
                 String link="estudiante.jsp";
                 /*if(estudiantedao.buscar(cedulaEstudiante)==-1){
                     estudiantedao.insertar(estudiante);
